@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class LibGuiClient {
+public class LibGuiClient  {
     public static final Logger logger = LogManager.getLogger();
     public static volatile LibGuiConfig config;
 
