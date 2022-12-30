@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "libgui",
+  "version": "${version}",
+  "name": "LibGui",
+  "description": "Easy grid-based GUIs for Fabric and Forge.",
+  "authors": [
+    "Falkreon",
+    "Juuz",
+    "Kenza"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "Insert License Here",
+  "icon": "assets/libgui/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.cottonmc.fabric.LibGuiFabric"
+    ],
+    "client": [
+      "io.github.cottonmc.fabric.LibGuiFabricClient"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.19.2",
+    "architectury": ">=6.2.43"
+  }
+}
