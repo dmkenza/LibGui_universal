@@ -7,8 +7,6 @@ import net.minecraft.util.Identifier;
 
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class WSprite extends WWidget {
 	protected int currentFrame= 0;

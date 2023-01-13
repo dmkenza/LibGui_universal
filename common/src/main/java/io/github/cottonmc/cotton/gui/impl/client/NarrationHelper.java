@@ -4,12 +4,10 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
-import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 
 import io.github.cottonmc.cotton.gui.widget.WPanel;
 import io.github.cottonmc.cotton.gui.widget.WWidget;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,7 +26,7 @@ public final class NarrationHelper {
 
 			// replicates Screen.addElementNarrations
 			if (narratableWidgets.size() > 1) {
-				builder.put(NarrationPart.POSITION, Text.translatable(NarrationMessages.Vanilla.SCREEN_POSITION_KEY, i + 1, childCount));
+				builder.put(NarrationPart.POSITION, new TranslatableText(NarrationMessages.Vanilla.SCREEN_POSITION_KEY, i + 1, childCount));
 
 				if (child.isFocused()) {
 					builder.put(NarrationPart.USAGE, NarrationMessages.Vanilla.COMPONENT_LIST_USAGE);

@@ -5,13 +5,12 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,9 +45,9 @@ public final class VisualLogger {
 		logger.log(level, message, params);
 
 		if (FabricLoader.getInstance().isDevelopmentEnvironment()) {
-			var text = Text.literal(clazz.getSimpleName() + '/');
-			text.append(Text.literal(level.name()).formatted(formatting));
-			text.append(Text.literal(": " + ParameterizedMessage.format(message, params)));
+			var text = new LiteralText(clazz.getSimpleName() + '/');
+			text.append(new LiteralText(level.name()).formatted(formatting));
+			text.append(new LiteralText(": " + ParameterizedMessage.format(message, params)));
 
 			WARNINGS.add(text);
 		}

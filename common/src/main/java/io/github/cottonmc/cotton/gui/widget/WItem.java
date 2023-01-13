@@ -9,13 +9,9 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.tag.Tag;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Collections;
 import java.util.List;
@@ -36,7 +32,7 @@ public class WItem extends WWidget {
 		setItems(items);
 	}
 
-	public WItem(TagKey<? extends ItemConvertible> tag) {
+	public WItem(Tag<? extends ItemConvertible> tag) {
 		this(getRenderStacks(tag));
 	}
 
@@ -108,15 +104,13 @@ public class WItem extends WWidget {
 	}
 
 	/**
-	 * Gets the default stacks ({@link Item#getDefaultStack()} ()}) of each item in a tag.
+	 * Gets the render stacks ({@link Item#getStackForRender()}) of each item in a tag.
 	 */
-	@SuppressWarnings("unchecked")
-	private static List<ItemStack> getRenderStacks(TagKey<? extends ItemConvertible> tag) {
-		Registry<ItemConvertible> registry = (Registry<ItemConvertible>) Registry.REGISTRIES.get(tag.registry().getValue());
+	private static List<ItemStack> getRenderStacks(Tag<? extends ItemConvertible> tag) {
 		ImmutableList.Builder<ItemStack> builder = ImmutableList.builder();
 
-		for (RegistryEntry<ItemConvertible> item : registry.getOrCreateEntryList((TagKey<ItemConvertible>) tag)) {
-			builder.add(item.value().asItem().getDefaultStack());
+		for (ItemConvertible item : tag.values()) {
+			builder.add(new ItemStack(item));
 		}
 
 		return builder.build();

@@ -5,8 +5,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.util.math.MatrixStack;
 
 import io.github.cottonmc.cotton.gui.client.Scissors;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 /**
  * A panel that is clipped to only render widgets inside its bounds.

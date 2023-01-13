@@ -12,12 +12,8 @@ import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.ai.brain.Schedule;
 import net.minecraft.entity.ai.brain.sensor.SensorType;
 import net.minecraft.entity.attribute.EntityAttribute;
-import net.minecraft.entity.decoration.painting.PaintingVariant;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.passive.CatVariant;
-import net.minecraft.entity.passive.FrogVariant;
 import net.minecraft.fluid.Fluid;
-import net.minecraft.item.Instrument;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.loot.condition.LootConditionType;
@@ -56,9 +52,7 @@ import net.minecraft.world.gen.feature.size.FeatureSizeType;
 import net.minecraft.world.gen.foliage.FoliagePlacerType;
 import net.minecraft.world.gen.heightprovider.HeightProviderType;
 import net.minecraft.world.gen.placementmodifier.PlacementModifierType;
-import net.minecraft.world.gen.root.RootPlacerType;
 import net.minecraft.world.gen.stateprovider.BlockStateProviderType;
-import net.minecraft.world.gen.structure.StructureType;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.TrunkPlacerType;
 import net.minecraft.world.poi.PointOfInterestType;
@@ -69,6 +63,7 @@ import blue.endless.jankson.JsonNull;
 import blue.endless.jankson.JsonObject;
 import blue.endless.jankson.JsonPrimitive;
 
+import static net.minecraft.block.NoteBlock.INSTRUMENT;
 import static net.minecraft.util.registry.Registry.*;
 
 public class JanksonFactory {
@@ -93,14 +88,14 @@ public class JanksonFactory {
 		//All the things you could potentially specify with just a registry ID
 		//Note: specifically excludes dynamic registries since we can't have static access to them.
 		register(builder, Activity.class,                   ACTIVITY);
-		register(builder, ArgumentSerializer.class,         COMMAND_ARGUMENT_TYPE);
-		register(builder, BannerPattern.class,              BANNER_PATTERN);
+//		register(builder, ArgumentSerializer.class,         COMMAND_ARGUMENT_TYPE);
+//		register(builder, BannerPattern.class,              BANNER_PATTERN);
 		register(builder, Block.class,                      BLOCK);
 		register(builder, BlockEntityType.class,            BLOCK_ENTITY_TYPE);
 		register(builder, BlockPredicateType.class,         BLOCK_PREDICATE_TYPE);
 		register(builder, BlockStateProviderType.class,     BLOCK_STATE_PROVIDER_TYPE);
 		register(builder, Carver.class,                     CARVER);
-		register(builder, CatVariant.class,                 CAT_VARIANT);
+//		register(builder, CatVariant.class,                 CAT_VARIANT);
 		register(builder, ChunkStatus.class,                CHUNK_STATUS);
 		register(builder, Enchantment.class,                ENCHANTMENT);
 		register(builder, EntityAttribute.class,            ATTRIBUTE);
@@ -110,10 +105,10 @@ public class JanksonFactory {
 		register(builder, FloatProviderType.class,          FLOAT_PROVIDER_TYPE);
 		register(builder, Fluid.class,                      FLUID);
 		register(builder, FoliagePlacerType.class,          FOLIAGE_PLACER_TYPE);
-		register(builder, FrogVariant.class,                FROG_VARIANT);
+//		register(builder, FrogVariant.class,                FROG_VARIANT);
 		register(builder, GameEvent.class,                  GAME_EVENT);
 		register(builder, HeightProviderType.class,         HEIGHT_PROVIDER_TYPE);
-		register(builder, Instrument.class,                 INSTRUMENT);
+//		register(builder, Instrument.class,                 INSTRUMENT);
 		register(builder, IntProviderType.class,            INT_PROVIDER_TYPE);
 		register(builder, Item.class,                       ITEM);
 		register(builder, LootConditionType.class,          LOOT_CONDITION_TYPE);
@@ -123,16 +118,16 @@ public class JanksonFactory {
 		register(builder, LootPoolEntryType.class,          LOOT_POOL_ENTRY_TYPE);
 		register(builder, LootScoreProviderType.class,      LOOT_SCORE_PROVIDER_TYPE);
 		register(builder, MemoryModuleType.class,           MEMORY_MODULE_TYPE);
-		register(builder, PaintingVariant.class,            PAINTING_VARIANT);
+//		register(builder, PaintingVariant.class,            PAINTING_VARIANT);
 		register(builder, ParticleType.class,               PARTICLE_TYPE);
 		register(builder, PlacementModifierType.class,      PLACEMENT_MODIFIER_TYPE);
-		register(builder, PointOfInterestType.class,        POINT_OF_INTEREST_TYPE);
+//		register(builder, PointOfInterestType.class,        POINT_OF_INTEREST_TYPE);
 		register(builder, PositionSourceType.class,         POSITION_SOURCE_TYPE);
 		register(builder, PosRuleTestType.class,            POS_RULE_TEST);
 		register(builder, Potion.class,                     POTION);
 		register(builder, RecipeSerializer.class,           RECIPE_SERIALIZER);
 		register(builder, RecipeType.class,                 RECIPE_TYPE);
-		register(builder, RootPlacerType.class,             ROOT_PLACER_TYPE);
+//		register(builder, RootPlacerType.class,             ROOT_PLACER_TYPE);
 		register(builder, RuleTestType.class,               RULE_TEST);
 		register(builder, Schedule.class,                   SCHEDULE);
 		register(builder, ScreenHandlerType.class,          SCREEN_HANDLER);
@@ -144,7 +139,7 @@ public class JanksonFactory {
 		register(builder, StructurePieceType.class,         STRUCTURE_PIECE);
 		register(builder, StructurePoolElementType.class,   STRUCTURE_POOL_ELEMENT);
 		register(builder, StructureProcessorType.class,     STRUCTURE_PROCESSOR);
-		register(builder, StructureType.class,              STRUCTURE_TYPE);
+//		register(builder, StructureType.class,              STRUCTURE_TYPE);
 		register(builder, TreeDecoratorType.class,          TREE_DECORATOR_TYPE);
 		register(builder, TrunkPlacerType.class,            TRUNK_PLACER_TYPE);
 		register(builder, VillagerProfession.class,         VILLAGER_PROFESSION);

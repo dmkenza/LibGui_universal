@@ -7,8 +7,6 @@ import net.minecraft.text.Style;
 
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.widget.WWidget;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 @Environment(EnvType.CLIENT)

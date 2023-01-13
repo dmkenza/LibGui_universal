@@ -4,11 +4,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.util.math.MatrixStack;
 
-import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -62,11 +59,6 @@ public class WListPanel<D, W extends WWidget> extends WClippedPanel {
 	private int lastScroll = -1;
 
 	/**
-	 * The widgets whose host hasn't been set yet.
-	 */
-	private final List<W> requiresHost = new ArrayList<>();
-
-	/**
 	 * Constructs a list panel.
 	 *
 	 * @param data         the list data
@@ -112,29 +104,8 @@ public class WListPanel<D, W extends WWidget> extends WClippedPanel {
 			// setHost instead of validate since we cannot have independent validations
 			// TODO: System for independently validating widgets?
 			child.setHost(host);
-		} else {
-			requiresHost.add(child);
 		}
 		return child;
-	}
-
-	@Override
-	public void validate(GuiDescription c) {
-		super.validate(c);
-		setRequiredHosts(c);
-	}
-
-	@Override
-	public void setHost(GuiDescription host) {
-		super.setHost(host);
-		setRequiredHosts(host);
-	}
-
-	private void setRequiredHosts(GuiDescription host) {
-		for (W widget : requiresHost) {
-			widget.setHost(host);
-		}
-		requiresHost.clear();
 	}
 
 	@Override

@@ -1,12 +1,11 @@
 package io.github.cottonmc.cotton.gui.impl;
 
 import dev.architectury.networking.NetworkManager;
+
 import io.netty.buffer.Unpooled;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 
 import io.github.cottonmc.cotton.gui.SyncedGuiDescription;
@@ -72,7 +71,6 @@ public class ScreenNetworkingImpl implements ScreenNetworking {
 		NetworkManager.registerReceiver(NetworkManager.Side.C2S, SCREEN_MESSAGE_C2S, (buf, context) -> {
 			handle(context.getPlayer().getServer(), context.getPlayer(), buf);
 		});
-
 //		ServerPlayNetworking.registerGlobalReceiver(SCREEN_MESSAGE_C2S, (server, player, networkHandler, buf, responseSender) -> {
 //			handle(server, player, buf);
 //		});

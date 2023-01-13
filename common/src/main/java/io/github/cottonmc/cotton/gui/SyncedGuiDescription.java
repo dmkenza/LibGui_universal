@@ -3,6 +3,7 @@ package io.github.cottonmc.cotton.gui;
 import net.examplemod.kenza.KPacketSender;
 import net.examplemod.kenza.KPlayerPacketSender;
 import net.examplemod.kenza.KServerPacketSender;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.block.Block;
@@ -36,8 +37,6 @@ import io.github.cottonmc.cotton.gui.widget.WWidget;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.Vec2i;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ import java.util.function.Supplier;
  * A screen handler-based GUI description for GUIs with slots.
  */
 public class SyncedGuiDescription extends ScreenHandler implements GuiDescription {
-
+	
 	protected Inventory blockInventory;
 	protected PlayerInventory playerInventory;
 	protected World world;

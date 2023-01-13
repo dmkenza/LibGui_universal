@@ -10,8 +10,6 @@ import io.github.cottonmc.cotton.gui.client.LibGui;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.impl.LibGuiCommon;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -25,7 +23,7 @@ public class WSlider extends WAbstractSlider {
 	public static final Identifier LIGHT_TEXTURE = new Identifier(LibGuiCommon.MOD_ID, "textures/widget/slider_light.png");
 	public static final Identifier DARK_TEXTURE = new Identifier(LibGuiCommon.MOD_ID, "textures/widget/slider_dark.png");
 
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	@Nullable
 	private BackgroundPainter backgroundPainter = null;
 

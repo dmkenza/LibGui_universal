@@ -16,8 +16,6 @@ import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
 import io.github.cottonmc.cotton.gui.widget.data.VerticalAlignment;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -34,7 +32,7 @@ public class WText extends WWidget {
 	protected int darkmodeColor;
 	protected HorizontalAlignment horizontalAlignment = HorizontalAlignment.LEFT;
 	protected VerticalAlignment verticalAlignment = VerticalAlignment.TOP;
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	private List<OrderedText> wrappedLines;
 	private boolean wrappingScheduled = false;
 

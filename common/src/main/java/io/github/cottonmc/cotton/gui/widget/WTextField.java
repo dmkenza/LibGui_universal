@@ -16,7 +16,9 @@ import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.VertexFormat;
 import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Matrix4f;
 
@@ -24,8 +26,7 @@ import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.impl.client.NarrationMessages;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -38,7 +39,7 @@ public class WTextField extends WWidget {
 	public static final int CURSOR_PADDING_Y = 4;
 	public static final int CURSOR_HEIGHT = 12;
 
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	private TextRenderer font;
 
 	private String text = "";
@@ -74,7 +75,7 @@ public class WTextField extends WWidget {
 
 	private Predicate<String> textPredicate;
 
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	@Nullable
 	private BackgroundPainter backgroundPainter;
 
@@ -263,7 +264,8 @@ public class WTextField extends WWidget {
 		buffer.vertex(model, x + width, y + height, 0).next();
 		buffer.vertex(model, x + width, y, 0).next();
 		buffer.vertex(model, x, y, 0).next();
-		BufferRenderer.drawWithShader(buffer.end());
+		buffer.end();
+		BufferRenderer.draw(buffer);
 		RenderSystem.disableColorLogicOp();
 		RenderSystem.enableTexture();
 	}
@@ -309,6 +311,16 @@ public class WTextField extends WWidget {
 	@Nullable
 	public Text getSuggestion() {
 		return suggestion;
+	}
+
+	/**
+	 * @deprecated Use {@link #setSuggestion(Text)} instead.
+	 */
+	@Deprecated(forRemoval = true, since = "5.4.0")
+	@ApiStatus.ScheduledForRemoval(inVersion = "6.0.0")
+	public WTextField setSuggestion(@Nullable String suggestion) {
+		this.suggestion = suggestion != null ? new LiteralText(suggestion) : null;
+		return this;
 	}
 
 	public WTextField setSuggestion(@Nullable Text suggestion) {
@@ -496,10 +508,10 @@ public class WTextField extends WWidget {
 
 	@Override
 	public void addNarrations(NarrationMessageBuilder builder) {
-		builder.put(NarrationPart.TITLE, Text.translatable(NarrationMessages.TEXT_FIELD_TITLE_KEY, text));
+		builder.put(NarrationPart.TITLE, new TranslatableText(NarrationMessages.TEXT_FIELD_TITLE_KEY, text));
 
 		if (suggestion != null) {
-			builder.put(NarrationPart.HINT, Text.translatable(NarrationMessages.TEXT_FIELD_SUGGESTION_KEY, suggestion));
+			builder.put(NarrationPart.HINT, new TranslatableText(NarrationMessages.TEXT_FIELD_SUGGESTION_KEY, suggestion));
 		}
 	}
 }

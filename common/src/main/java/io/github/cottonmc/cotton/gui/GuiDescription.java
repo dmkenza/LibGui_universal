@@ -9,8 +9,6 @@ import io.github.cottonmc.cotton.gui.widget.WPanel;
 import io.github.cottonmc.cotton.gui.widget.WWidget;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Vec2i;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 /**

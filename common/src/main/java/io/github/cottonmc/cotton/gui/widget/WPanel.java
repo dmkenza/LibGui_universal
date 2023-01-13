@@ -7,8 +7,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.AbstractList;
@@ -27,8 +25,7 @@ public abstract class WPanel extends WWidget {
 	 * <p>The list is mutable.
 	 */
 	protected final List<WWidget> children = new WidgetList(this, new ArrayList<>());
-
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	private BackgroundPainter backgroundPainter = null;
 
 	/**
@@ -107,10 +104,11 @@ public abstract class WPanel extends WWidget {
 		if (children.isEmpty()) return this;
 		for(int i=children.size()-1; i>=0; i--) { //Backwards so topmost widgets get priority
 			WWidget child = children.get(i);
-			int wx = x - child.getX();
-			int wy = y - child.getY();
-			if (child.isWithinBounds(wx, wy)) {
-				return child.hit(wx, wy);
+			if (    x>=child.getX() &&
+					y>=child.getY() &&
+					x<child.getX()+child.getWidth() &&
+					y<child.getY()+child.getHeight()) {
+				return child.hit(x-child.getX(), y-child.getY());
 			}
 		}
 		return this;
@@ -129,14 +127,6 @@ public abstract class WPanel extends WWidget {
 		layout();
 		for (WWidget child : children) {
 			child.validate(c);
-		}
-	}
-
-	@Override
-	public void setHost(GuiDescription host) {
-		super.setHost(host);
-		for (WWidget child : children) {
-			child.setHost(host);
 		}
 	}
 

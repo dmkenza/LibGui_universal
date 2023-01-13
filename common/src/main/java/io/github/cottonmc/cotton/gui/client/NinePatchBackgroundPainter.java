@@ -9,8 +9,6 @@ import io.github.cottonmc.cotton.gui.impl.client.NinePatchTextureRendererImpl;
 import io.github.cottonmc.cotton.gui.widget.WWidget;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
 import juuxel.libninepatch.NinePatch;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Consumer;
 

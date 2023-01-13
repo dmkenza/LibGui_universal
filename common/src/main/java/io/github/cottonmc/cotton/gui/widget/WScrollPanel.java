@@ -1,6 +1,7 @@
 package io.github.cottonmc.cotton.gui.widget;
 
 import kenza.TriState;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.util.math.MatrixStack;
@@ -8,8 +9,6 @@ import net.minecraft.client.util.math.MatrixStack;
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 /**
  * Similar to the JScrollPane in Swing, this widget represents a scrollable widget.

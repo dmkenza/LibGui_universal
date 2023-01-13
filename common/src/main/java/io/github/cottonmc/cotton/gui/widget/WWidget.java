@@ -11,8 +11,7 @@ import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.impl.VisualLogger;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
 import io.github.cottonmc.cotton.gui.widget.data.ObservableProperty;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
@@ -387,18 +386,14 @@ public class WWidget {
 	}
 
 	/**
-	 * Sets the host of this widget and all its children without creating peers.
+	 * Sets the host of this widget without creating peers.
 	 *
 	 * @param host the new host
 	 * @see #host
 	 * @since 2.1.0
 	 */
-	public void setHost(GuiDescription host) {
-		if (host != null) {
-			this.host = host;
-		} else {
-			LOGGER.warn("Setting null host for {}", this);
-		}
+	public void setHost(@Nullable GuiDescription host) {
+		this.host = host;
 	}
 
 	/**
@@ -493,12 +488,14 @@ public class WWidget {
 	 * {@link #paint(MatrixStack, int, int, int, int) paint()} directly.
 	 * That lets you react to different parts of the widget being hovered over.
 	 *
+	 * @experimental
 	 * @return the {@code hovered} property
 	 * @since 4.2.0
 	 * @see #canHover()
 	 * @see #isHovered()
 	 * @see #setHovered(boolean)
 	 */
+	@ApiStatus.Experimental
 	public ObservableProperty<Boolean> hoveredProperty() {
 		return hovered;
 	}
@@ -507,9 +504,11 @@ public class WWidget {
 	 * Returns whether the user is hovering over this widget.
 	 * This is equivalent to calling <code>{@link #hoveredProperty()}.get()</code>.
 	 *
+	 * @experimental
 	 * @return true if this widget is hovered, false otherwise
 	 * @since 4.2.0
 	 */
+	@ApiStatus.Experimental
 	public final boolean isHovered() {
 		return hoveredProperty().get();
 	}
@@ -518,9 +517,11 @@ public class WWidget {
 	 * Sets the {@link #hoveredProperty() hovered} property.
 	 * This is equivalent to calling <code>{@link #hoveredProperty()}.set(<i>hovered</i>)</code>.
 	 *
+	 * @experimental
 	 * @param hovered the new value; true if hovered, false otherwise
 	 * @since 4.2.0
 	 */
+	@ApiStatus.Experimental
 	public final void setHovered(boolean hovered) {
 		hoveredProperty().set(hovered);
 	}

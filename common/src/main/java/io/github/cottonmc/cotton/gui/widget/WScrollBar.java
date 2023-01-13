@@ -11,8 +11,6 @@ import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.impl.client.NarrationMessages;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 public class WScrollBar extends WWidget {
 	private static final int SCROLLING_SPEED = 4;

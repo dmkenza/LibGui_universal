@@ -4,15 +4,15 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.screen.PropertyDelegate;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -205,13 +205,13 @@ public class WBar extends WWidget {
 		if (tooltipLabel != null) {
 			int value = (field >= 0) ? properties.get(field) : 0;
 			int valMax = (max >= 0) ? properties.get(max) : maxValue;
-			information.add(Text.translatable(tooltipLabel, value, valMax));
+			information.add(new TranslatableText(tooltipLabel, Integer.valueOf(value), Integer.valueOf(valMax)));
 		}
 		if (tooltipTextComponent != null) {
 			try {
 				information.add(tooltipTextComponent);
 			} catch (Throwable t) {
-				information.add(Text.literal(t.getLocalizedMessage()));
+				information.add(new LiteralText(t.getLocalizedMessage()));
 			}
 		}
 	}

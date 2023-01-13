@@ -5,9 +5,6 @@ import net.fabricmc.api.Environment;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Text;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

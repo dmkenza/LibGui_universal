@@ -7,8 +7,6 @@ import net.minecraft.util.Identifier;
 
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.widget.data.Texture;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 /**
  * An icon that draws a texture.

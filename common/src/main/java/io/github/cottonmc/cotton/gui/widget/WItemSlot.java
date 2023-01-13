@@ -12,18 +12,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
+import net.minecraft.text.TranslatableText;
 
 import io.github.cottonmc.cotton.gui.GuiDescription;
 import io.github.cottonmc.cotton.gui.ValidatedSlot;
 import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
-import io.github.cottonmc.cotton.gui.impl.LibGuiCommon;
 import io.github.cottonmc.cotton.gui.impl.VisualLogger;
 import io.github.cottonmc.cotton.gui.impl.client.NarrationMessages;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
 import io.github.cottonmc.cotton.gui.widget.icon.Icon;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -69,17 +66,10 @@ import java.util.function.Predicate;
  * </pre>
  */
 public class WItemSlot extends WWidget {
-	/**
-	 * The default texture of item slots and {@link BackgroundPainter#SLOT}.
-	 *
-	 * @since 6.2.0
-	 */
-	public static final Identifier SLOT_TEXTURE = new Identifier(LibGuiCommon.MOD_ID, "textures/widget/item_slot.png");
-
 	private static final VisualLogger LOGGER = new VisualLogger(WItemSlot.class);
 	private final List<ValidatedSlot> peers = new ArrayList<>();
 	@Nullable
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	private BackgroundPainter backgroundPainter = null;
 	@Nullable
 	private Icon icon = null;
@@ -418,11 +408,6 @@ public class WItemSlot extends WWidget {
 		}
 	}
 
-	@Override
-	public void onFocusLost() {
-		focusedSlot = -1;
-	}
-
 	/**
 	 * Adds a change listener to this slot.
 	 * Does nothing if the listener is already registered.
@@ -478,9 +463,9 @@ public class WItemSlot extends WWidget {
 		if (name != null) parts.add(name);
 
 		if (focusedSlot >= 0) {
-			parts.add(Text.translatable(NarrationMessages.ITEM_SLOT_TITLE_KEY, focusedSlot + 1, slotsWide * slotsHigh));
+			parts.add(new TranslatableText(NarrationMessages.ITEM_SLOT_TITLE_KEY, focusedSlot + 1, slotsWide * slotsHigh));
 		} else if (hoveredSlot >= 0) {
-			parts.add(Text.translatable(NarrationMessages.ITEM_SLOT_TITLE_KEY, hoveredSlot + 1, slotsWide * slotsHigh));
+			parts.add(new TranslatableText(NarrationMessages.ITEM_SLOT_TITLE_KEY, hoveredSlot + 1, slotsWide * slotsHigh));
 		}
 
 		builder.put(NarrationPart.TITLE, parts.toArray(new Text[0]));

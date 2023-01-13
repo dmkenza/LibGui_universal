@@ -4,9 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.util.math.MatrixStack;
 
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-
 /**
  * A square icon for a widget such as a button.
  *
