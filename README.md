@@ -13,6 +13,7 @@ into gradle file.
 You have to call also
 
 LibGuiCommon.onInitialize() in your mod init.
+
 LibGuiClient.onInitialize() in client init
 
 The library requires Koltin.
