@@ -16,6 +16,7 @@ LibGuiCommon.onInitialize() in your mod init.
 LibGuiClient.onInitialize() in client init
 
 The library requires Koltin.
+
 You can just download Kotlin
 from https://www.curseforge.com/minecraft/mc-mods/kotlin-for-forge and place into libs folder
 or set up in gradle by https://github.com/thedarkcolour/KotlinForForge
