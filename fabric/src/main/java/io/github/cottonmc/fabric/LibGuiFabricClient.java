@@ -11,7 +11,7 @@ public class LibGuiFabricClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        LibGuiClient.iniLibGuiClient();
+        LibGuiClient.onInitialize();
     }
 }
 

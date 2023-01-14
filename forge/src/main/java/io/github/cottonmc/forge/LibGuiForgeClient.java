@@ -19,7 +19,7 @@ import static net.minecraft.util.registry.Registry.SCREEN_HANDLER;
 public class LibGuiForgeClient {
     @SubscribeEvent
     public static void init(FMLClientSetupEvent event) {
-        LibGuiClient.onInitializeClient();
+        LibGuiClient.onInitialize();
     }
 
 }

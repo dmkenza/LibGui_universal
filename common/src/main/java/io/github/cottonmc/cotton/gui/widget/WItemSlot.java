@@ -69,7 +69,6 @@ public class WItemSlot extends WWidget {
 	private static final VisualLogger LOGGER = new VisualLogger(WItemSlot.class);
 	private final List<ValidatedSlot> peers = new ArrayList<>();
 	@Nullable
-	@Environment(EnvType.CLIENT)
 	private BackgroundPainter backgroundPainter = null;
 	@Nullable
 	private Icon icon = null;

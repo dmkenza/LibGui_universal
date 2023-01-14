@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[43,)"
+loaderVersion = "[40,)"
 #issueTrackerURL = ""
 license = "MIT"
 
@@ -16,20 +16,20 @@ Easy grid-based GUIs for Fabric and Forge.
 [[dependencies.libgui]]
 modId = "forge"
 mandatory = true
-versionRange = "[43,)"
+versionRange = "[34,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.libgui]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.2,)"
+versionRange = "[1.18,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.libgui]]
 modId = "architectury"
 mandatory = true
-versionRange = "[6.2.43,)"
+versionRange = "[1.0.0,)"
 ordering = "AFTER"
 side = "BOTH"

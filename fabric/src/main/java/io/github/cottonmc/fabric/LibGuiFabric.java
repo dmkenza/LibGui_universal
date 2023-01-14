@@ -8,7 +8,7 @@ public class LibGuiFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LibGuiCommon.initLibGuiCommon();
+        LibGuiCommon.onInitialize();
 //        LibGuiClient.onInitializeClient();
     }
 }

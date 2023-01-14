@@ -32,7 +32,6 @@ public class WText extends WWidget {
 	protected int darkmodeColor;
 	protected HorizontalAlignment horizontalAlignment = HorizontalAlignment.LEFT;
 	protected VerticalAlignment verticalAlignment = VerticalAlignment.TOP;
-	@Environment(EnvType.CLIENT)
 	private List<OrderedText> wrappedLines;
 	private boolean wrappingScheduled = false;
 

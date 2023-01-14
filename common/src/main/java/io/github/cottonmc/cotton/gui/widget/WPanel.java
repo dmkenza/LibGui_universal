@@ -25,7 +25,6 @@ public abstract class WPanel extends WWidget {
 	 * <p>The list is mutable.
 	 */
 	protected final List<WWidget> children = new WidgetList(this, new ArrayList<>());
-	@Environment(EnvType.CLIENT)
 	private BackgroundPainter backgroundPainter = null;
 
 	/**

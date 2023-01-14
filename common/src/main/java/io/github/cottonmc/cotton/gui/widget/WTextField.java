@@ -39,7 +39,6 @@ public class WTextField extends WWidget {
 	public static final int CURSOR_PADDING_Y = 4;
 	public static final int CURSOR_HEIGHT = 12;
 
-	@Environment(EnvType.CLIENT)
 	private TextRenderer font;
 
 	private String text = "";
@@ -75,7 +74,6 @@ public class WTextField extends WWidget {
 
 	private Predicate<String> textPredicate;
 
-	@Environment(EnvType.CLIENT)
 	@Nullable
 	private BackgroundPainter backgroundPainter;
 

@@ -25,7 +25,7 @@ public class LibGuiClient  {
 
     public static volatile Jankson jankson;
 
-    public static void iniLibGuiClient() {
+    public static void onInitialize() {
 
         if (Platform.isFabric()) {
             jankson = JanksonFactory.createJankson();
