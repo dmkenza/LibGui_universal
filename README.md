@@ -3,7 +3,7 @@ Forge port of Cotton's Fabric LibGui
 
 # For developers
 
-Place dev jar from releases into libs folder for Forge.
+Place dev-shadow.jar from releases into libs folder for Forge.
 
 add
 modImplementation fileTree(dir: 'libs', include: ['*.jar'])
