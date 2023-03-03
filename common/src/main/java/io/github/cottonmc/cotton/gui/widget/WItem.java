@@ -9,13 +9,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
-import net.minecraft.tag.TagKey;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.util.registry.RegistryEntry;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.TagKey;
 
 import com.google.common.collect.ImmutableList;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.Collections;
 import java.util.List;
@@ -66,7 +65,7 @@ public class WItem extends WWidget {
 		MinecraftClient mc = MinecraftClient.getInstance();
 		ItemRenderer renderer = mc.getItemRenderer();
 		renderer.zOffset = 100f;
-		renderer.renderInGui(items.get(current), x + getWidth() / 2 - 9, y + getHeight() / 2 - 9);
+		renderer.renderInGui(items.get(current), x + getWidth() / 2 - 8, y + getHeight() / 2 - 8);
 		renderer.zOffset = 0f;
 	}
 
@@ -112,7 +111,7 @@ public class WItem extends WWidget {
 	 */
 	@SuppressWarnings("unchecked")
 	private static List<ItemStack> getRenderStacks(TagKey<? extends ItemConvertible> tag) {
-		Registry<ItemConvertible> registry = (Registry<ItemConvertible>) Registry.REGISTRIES.get(tag.registry().getValue());
+		Registry<ItemConvertible> registry = (Registry<ItemConvertible>) Registries.REGISTRIES.get(tag.registry().getValue());
 		ImmutableList.Builder<ItemStack> builder = ImmutableList.builder();
 
 		for (RegistryEntry<ItemConvertible> item : registry.getOrCreateEntryList((TagKey<ItemConvertible>) tag)) {

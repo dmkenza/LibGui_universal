@@ -18,15 +18,13 @@ import net.minecraft.client.render.VertexFormats;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.Matrix4f;
 
 import io.github.cottonmc.cotton.gui.client.BackgroundPainter;
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.impl.client.NarrationMessages;
 import io.github.cottonmc.cotton.gui.widget.data.InputResult;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
+import org.joml.Matrix4f;
 import org.lwjgl.glfw.GLFW;
 
 import java.util.function.Consumer;
@@ -38,7 +36,7 @@ public class WTextField extends WWidget {
 	public static final int CURSOR_PADDING_Y = 4;
 	public static final int CURSOR_HEIGHT = 12;
 
-//	@Environment(EnvType.CLIENT)
+	@Environment(EnvType.CLIENT)
 	private TextRenderer font;
 
 	private String text = "";
@@ -74,7 +72,7 @@ public class WTextField extends WWidget {
 
 	private Predicate<String> textPredicate;
 
-//	@Environment(EnvType.CLIENT)
+
 	@Nullable
 	private BackgroundPainter backgroundPainter;
 
@@ -254,7 +252,7 @@ public class WTextField extends WWidget {
 		BufferBuilder buffer = tessellator.getBuffer();
 		Matrix4f model = matrices.peek().getPositionMatrix();
 		RenderSystem.setShaderColor(0.0F, 0.0F, 1.0F, 1.0F);
-		RenderSystem.setShader(GameRenderer::getPositionTexShader);
+		RenderSystem.setShader(GameRenderer::getPositionTexProgram);
 		RenderSystem.disableTexture();
 		RenderSystem.enableColorLogicOp();
 		RenderSystem.logicOp(GlStateManager.LogicOp.OR_REVERSE);
@@ -263,7 +261,7 @@ public class WTextField extends WWidget {
 		buffer.vertex(model, x + width, y + height, 0).next();
 		buffer.vertex(model, x + width, y, 0).next();
 		buffer.vertex(model, x, y, 0).next();
-		BufferRenderer.drawWithShader(buffer.end());
+		BufferRenderer.drawWithGlobalProgram(buffer.end());
 		RenderSystem.disableColorLogicOp();
 		RenderSystem.enableTexture();
 	}
@@ -316,7 +314,7 @@ public class WTextField extends WWidget {
 		return this;
 	}
 
-	@Environment(EnvType.CLIENT)
+
 	public WTextField setBackgroundPainter(BackgroundPainter painter) {
 		this.backgroundPainter = painter;
 		return this;

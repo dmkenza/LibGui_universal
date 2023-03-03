@@ -21,10 +21,13 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
 
-    shadow "org.joml:joml:1.10.5"
-    shadow "blue.endless:jankson:1.2.1"
-    shadow "io.github.juuxel:libninepatch:${rootProject.libninepatch_version}"
-//    shadowCommon "io.github.juuxel:libninepatch:${rootProject.libninepatch_version}"
+    modImplementation "org.joml:joml:1.10.5"
+    include "org.joml:joml:1.10.5"
+    modImplementation "blue.endless:jankson:1.2.1"
+    include "blue.endless:jankson:1.2.1"
+
+    modImplementation "io.github.juuxel:libninepatch:${rootProject.libninepatch_version}"
+    include "io.github.juuxel:libninepatch:${rootProject.libninepatch_version}"
 
 //    shadow "blue.endless:jankson:1.2.1"
 //    include "blue.endless:jankson:1.2.1"

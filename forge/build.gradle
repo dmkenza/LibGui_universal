@@ -30,17 +30,22 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 
-    common ("org.joml:joml:1.10.5")
-    shadowCommon ("org.joml:joml:1.10.5")
+//    common ("org.joml:joml:1.10.5")
+//    shadowCommon ("org.joml:joml:1.10.5")0
 
-    common ("blue.endless:jankson:1.2.1")
-    shadowCommon ("blue.endless:jankson:1.2.1")
+//    common ("blue.endless:jankson:1.2.1")
+//    shadowCommon ("blue.endless:jankson:1.2.1")
 
     common ("io.github.juuxel:libninepatch:${rootProject.libninepatch_version}")
     shadowCommon ("io.github.juuxel:libninepatch:${rootProject.libninepatch_version}")
 
-    common(project(path: ":common", configuration: "namedElements")) { transitive false }
-    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
+    common(project(path: ":common", configuration: "namedElements")) {
+        transitive = false
+    }
+
+    shadowCommon(project(path: ":common", configuration: "transformProductionForge")) {
+        transitive = false
+    }
 }
 
 processResources {

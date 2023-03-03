@@ -36,8 +36,6 @@ import io.github.cottonmc.cotton.gui.widget.WWidget;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
 import io.github.cottonmc.cotton.gui.widget.data.Insets;
 import io.github.cottonmc.cotton.gui.widget.data.Vec2i;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -47,7 +45,7 @@ import java.util.function.Supplier;
  * A screen handler-based GUI description for GUIs with slots.
  */
 public class SyncedGuiDescription extends ScreenHandler implements GuiDescription {
-
+	
 	protected Inventory blockInventory;
 	protected PlayerInventory playerInventory;
 	protected World world;
@@ -136,7 +134,7 @@ public class SyncedGuiDescription extends ScreenHandler implements GuiDescriptio
 	}
 
 	@Override
-	public ItemStack transferSlot(PlayerEntity player, int index) {
+	public ItemStack quickMove(PlayerEntity player, int index) {
 		ItemStack result = ItemStack.EMPTY;
 		Slot slot = slots.get(index);
 

@@ -7,14 +7,12 @@ import net.minecraft.client.gui.screen.narration.NarrationPart;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3f;
+import net.minecraft.util.math.RotationAxis;
 
 import io.github.cottonmc.cotton.gui.client.ScreenDrawing;
 import io.github.cottonmc.cotton.gui.impl.client.NarrationMessages;
 import io.github.cottonmc.cotton.gui.widget.data.Axis;
 import io.github.cottonmc.cotton.gui.widget.data.HorizontalAlignment;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 /**
@@ -174,7 +172,7 @@ public class WLabeledSlider extends WAbstractSlider {
 		matrices.translate(x, y, 0);
 		if (axis == Axis.VERTICAL) {
 			matrices.translate(0, height, 0);
-			matrices.multiply(Vec3f.POSITIVE_Z.getDegreesQuaternion(270));
+			matrices.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(270));
 		}
 		drawButton(matrices, 0, 0, 0, aWidth);
 
